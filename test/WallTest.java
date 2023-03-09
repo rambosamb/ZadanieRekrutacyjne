@@ -17,6 +17,12 @@ class WallTest {
         list.add(new BlockElements("Brown", "Wood"));
         list.add(new BlockElements("Yellow", null));
         list.add(new BlockElements(null, "Wood"));
+        list.add(new Brick("Black", "Plastic", 12));
+        list.add(new Brick("Black", "Plastic", 5));
+        list.add(new Brick("Black", "Aluminum", 4));
+        list.add(new BlockElements("Yellow", "Aluminum"));
+        list.add(new BlockElements("Yellow", "Aluminum"));
+
         wall = new Wall(list);
     }
 
@@ -33,6 +39,10 @@ class WallTest {
         Optional<Block> result3 = wall.findBlockByColor("Red");
         Assertions.assertTrue(result3.isEmpty());
 
+        Optional<Block> result4 = wall.findBlockByColor("Black");
+        Assertions.assertTrue(result4.isPresent());
+        Assertions.assertEquals("Black", result4.get().getColor());
+
     }
 
     @Test
@@ -48,20 +58,18 @@ class WallTest {
 
         List<Block> list3 = wall.findBlocksByMaterial("Dirt");
         Assertions.assertTrue(list3.isEmpty());
+
+        List<Block> list4 = wall.findBlocksByMaterial("Plastic");
+        Assertions.assertEquals(17, list4.size());
+
+        List<Block> list5 = wall.findBlocksByMaterial("Aluminum");
+        Assertions.assertEquals(6, list5.size());
     }
 
     @Test
     void countListTest() {
         int listCounter = wall.count();
-        Assertions.assertEquals(4, listCounter);
+        Assertions.assertEquals(27, listCounter);
     }
 
-    @Test
-    void getBlocksTest() {
-        List<Block> list = wall.getBlocks();
-        Assertions.assertEquals(4, list.size());
-        list.clear();
-        List<Block> list2 = wall.getBlocks();
-        Assertions.assertEquals(4, list2.size());
-    }
 }

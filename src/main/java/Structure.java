@@ -9,5 +9,4 @@ public interface Structure {
         List<Block> findBlocksByMaterial(String material);
         //zwraca liczbę wszystkich elementów tworzących strukturę
         int count();
-        List<Block> getBlocks();
 }
