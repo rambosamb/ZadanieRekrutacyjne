@@ -21,6 +21,4 @@ class BlockElements implements Block {
     public int count() {
         return 1;
     }
-
-
 }

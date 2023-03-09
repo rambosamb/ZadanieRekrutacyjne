@@ -28,8 +28,6 @@ public class Wall implements Structure {
     public List<Block> findBlocksByMaterial(String material) {
         return _findBlocksByMaterial(blocks, material);
     }
-
-
     private List<Block> _findBlocksByMaterial(List<Block> list, String material) {
         List<Block> newBlockList = new ArrayList<>();
         for (Block block : list) {

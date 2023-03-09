@@ -5,8 +5,6 @@ class Brick implements CompositeBlock {
     private final String color;
     private final String material;
     private final List<Block> list;
-
-
     Brick(String color, String material, int listSize) {
         this.color = color;
         this.material = material;
@@ -30,8 +28,6 @@ class Brick implements CompositeBlock {
                 }
             });
         }
-
-
     }
 
     @Override
@@ -43,6 +39,7 @@ class Brick implements CompositeBlock {
     public String getMaterial() {
         return material;
     }
+
     @Override
     public int count() {
         int count = 0;
